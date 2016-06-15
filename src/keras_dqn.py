@@ -83,8 +83,7 @@ class DeepQNetwork:
   def _createLayers(self, num_actions, input_shape):
     #TODO check is right Gaussian
     # init_norm = 'glorot_normal'
-    # init_norm = 'glorot_uniform'
-    init_norm = 'uniform'
+    init_norm = 'glorot_uniform'
     S = Input(shape=input_shape)
     # , , self.cost
     h = Convolution2D(32, 8, 8, subsample=(4, 4), border_mode='same', activation='relu', init=init_norm)(S)
