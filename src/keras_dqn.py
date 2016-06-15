@@ -149,16 +149,13 @@ class DeepQNetwork:
 
     # update Q-value targets for actions taken
     # -- delta = r + (1-terminal) * gamma * max_a Q(s2, a) - Q(s, a)
-    targets = rewards + np.multiply(1-terminals, self.discount_rate * maxpostq)
-    preq[0,:] = targets
-    # for i, action in enumerate(actions):
-    #   if terminals[i]:
-    #     targets[action, i] = float(rewards[i])
-    #   else:
-    #     targets[action, i] = float(rewards[i]) + self.discount_rate * maxpostq[i]
+    for i, action in enumerate(actions):
+      if terminals[i]:
+        targets[action, i] = float(rewards[i])
+      else:
+        targets[action, i] = float(rewards[i]) + self.discount_rate * maxpostq[i]
 
-    self.model.train_on_batch(self.input, preq.T)
-    xx = self.model.loss_functions.
+    self.model.train_on_batch(self.input, targets.T)
 
     # # copy targets to GPU memory
     # self.targets.set(targets)
