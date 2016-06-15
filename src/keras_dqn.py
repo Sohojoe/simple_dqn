@@ -105,7 +105,7 @@ class DeepQNetwork:
     # self.input.set(states.copy())
     # # normalize network input between 0 and 1
     # self.be.divide(self.input, 255, self.input)
-    self.input = states
+    self.input = np.copy(states)
 
     return
 
@@ -142,7 +142,7 @@ class DeepQNetwork:
     assert preq.shape == (self.num_actions, self.batch_size)
 
     # make copy of prestate Q-values as targets
-    targets = preq
+    targets = np.copy(preq)
 
     # clip rewards between -1 and 1
     # rewards = np.clip(rewards, self.min_reward, self.max_reward)
