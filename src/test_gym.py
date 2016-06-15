@@ -4,7 +4,8 @@ import argparse
 import numpy as np
 import cv2
 from environment import GymEnvironment
-from deepqnetwork import DeepQNetwork
+# from deepqnetwork import DeepQNetwork
+from keras_dqn import DeepQNetwork
 from replay_memory import ReplayMemory
 from agent import Agent
 

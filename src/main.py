@@ -3,7 +3,8 @@ logging.basicConfig(format='%(asctime)s %(message)s')
 
 from environment import ALEEnvironment, GymEnvironment
 from replay_memory import ReplayMemory
-from deepqnetwork import DeepQNetwork
+# from deepqnetwork import DeepQNetwork
+from keras_dqn import DeepQNetwork
 from agent import Agent
 from statistics import Statistics
 import random
